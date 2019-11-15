@@ -28,7 +28,7 @@ pipeline {
         steps {
          withAWS(region:'us-east-1',credentials:'e1b45079-b2b7-4af7-b53c-65346b59e6ce') {
            s3Delete(bucket: 'jradrecipes.club', path:'**/*')
-           s3Upload(bucket: 'jradrecipes.club', workingDir:'dist/project2-front-end', includePathPattern:'**/*');
+           s3Upload(bucket: 'jradrecipes.club', workingDir:'dist/project2ng', includePathPattern:'**/*');
             }
           }
        }
