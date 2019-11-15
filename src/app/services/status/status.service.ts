@@ -9,6 +9,23 @@ export class StatusService {
   constructor(private http: HttpClient) {}
 
   getAllStatuses() {
-    return this.http.get<Status[]>("http://localhost:8085/status/all");
+    return this.http.get<Status[]>("http://api.jradrecipes.club/status/all");
+  }
+
+  getStatusById(id: number) {
+    return this.http.get<Status>("http://api.jradrecipes.club/status/id/" + id);
+  }
+
+  getStatusByStatus(status: string) {
+    return this.http.get<Status>(
+      "http://api.jradrecipes.club/status/status/" + status
+    );
+  }
+
+  addStatus(status: Status) {
+    return this.http.post<Status>(
+      "http://api.jradrecipes.club/status/add",
+      status
+    );
   }
 }
