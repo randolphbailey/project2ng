@@ -8,6 +8,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ControlMessagesComponent } from 'src/app/components/register/control-messages.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule} from "@angular/forms";
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ControlMessagesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule,
     HttpClientModule, ReactiveFormsModule, FormsModule],

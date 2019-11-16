@@ -4,7 +4,7 @@ import {JradUserService} from 'src/app/services/jradUser/jrad-user.service';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import{ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {ValidationService} from 'src/app/components/register/validation.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -24,18 +24,20 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
-      firstname: [''],
-      lastname: [''],
-      email: [''],
-      username: [''],
-      password: [''],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      email: ['', [Validators.required, ValidationService.emailValidator]],
+      username: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, ValidationService.passwordValidator]],
     });
   }
 
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
      onSubmit() {
-      console.warn(this.registerForm.value);
+      console.log(this.registerForm);
 
      }
 
