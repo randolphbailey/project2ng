@@ -9,14 +9,14 @@ import { Recipe } from "../../models/Recipe";
 })
 export class RecipeComponent implements OnInit {
   recipes: Recipe[] = [];
-  query: string = "";
+  recipeQuery: string;
 
   constructor(private rs: RecipeService) {}
 
   ngOnInit() {}
 
   getRecipes() {
-    this.rs.getRecipes(this.query).subscribe(
+    this.rs.getRecipes(this.recipeQuery).subscribe(
       data => {
         this.recipes = [];
         data.hits.forEach(element => {

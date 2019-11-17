@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { RecipeComponent } from "./recipe.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe("RecipeComponent", () => {
   let component: RecipeComponent;
@@ -9,7 +10,7 @@ describe("RecipeComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
+      imports: [FormsModule, ReactiveFormsModule, HttpClientTestingModule],
       declarations: [RecipeComponent]
     }).compileComponents();
   }));
