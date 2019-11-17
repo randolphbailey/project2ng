@@ -8,6 +8,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NewPostComponent } from './components/newpost/newpost.component';
 import { ControlMessagesComponent } from 'src/app/components/register/control-messages.component';
 
 
@@ -18,6 +19,7 @@ import { ControlMessagesComponent } from 'src/app/components/register/control-me
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    NewPostComponent,
     ControlMessagesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule,
