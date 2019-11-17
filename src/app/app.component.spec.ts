@@ -3,11 +3,15 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { AppComponent } from "./app.component";
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ControlMessagesComponent } from 'src/app/components/register/control-messages.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
 describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, FormsModule, ReactiveFormsModule],
-      declarations: [AppComponent]
+      imports: [RouterTestingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+      declarations: [AppComponent, ControlMessagesComponent]
     }).compileComponents();
   }));
 
