@@ -11,4 +11,10 @@ export class RoleService {
   getAllRoles() {
     return this.http.get<Role[]>("http://api.jradrecipes.club/role/all");
   }
+
+  getRoleByRole(role: String) {
+    return this.http.get<Role>(
+      "http://api.jradrecipes.club/role/getByRole/" + role
+    );
+  }
 }
