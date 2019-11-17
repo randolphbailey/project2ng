@@ -5,7 +5,9 @@ import { JradUser } from "src/app/models/JradUser";
   providedIn: "root"
 })
 export class GlobalVariablesService {
-  constructor(private currentUser: JradUser) {}
+  constructor() {}
+
+  private currentUser: JradUser;
 
   getCurrentUser() {
     return this.currentUser;
