@@ -10,6 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewPostComponent } from './components/newpost/newpost.component';
 import { ControlMessagesComponent } from 'src/app/components/register/control-messages.component';
+import { RecipeComponent } from './components/recipe/recipe.component';
 
 
 
@@ -20,7 +21,8 @@ import { ControlMessagesComponent } from 'src/app/components/register/control-me
     LoginComponent,
     RegisterComponent,
     NewPostComponent,
-    ControlMessagesComponent
+    ControlMessagesComponent,
+    RecipeComponent
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule,
     HttpClientModule, ReactiveFormsModule, FormsModule],

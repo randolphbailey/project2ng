@@ -1,0 +1,18 @@
+<div class="form-group">
+  <label for="recipeSearchBox">Search Recipes</label>
+  <input
+    [(ngModel)]="query"
+    id="recipeSearchBox"
+    class="form-control"
+    type="text"
+  />
+</div>
+<button type="button" class="btn btn-primary" (click)="getRecipes()">
+  Search!
+</button>
+
+<div class="card" *ngFor="let r of recipes">
+  <div class="card-body">
+    <p>{{ r.label }}</p>
+  </div>
+</div>
