@@ -12,6 +12,7 @@ import { NewPostComponent } from "./components/newpost/newpost.component";
 import { ControlMessagesComponent } from "src/app/components/register/control-messages.component";
 import { RecipeComponent } from "./components/recipe/recipe.component";
 import { NewcommentComponent } from "./components/newcomment/newcomment.component";
+import { MainpageComponent } from './components/mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewcommentComponent } from "./components/newcomment/newcomment.componen
     NewPostComponent,
     ControlMessagesComponent,
     RecipeComponent,
-    NewcommentComponent
+    NewcommentComponent,
+    MainpageComponent
   ],
   imports: [
     BrowserModule,

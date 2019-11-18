@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           if (this.currentUser.email === this.loginForm.value.email && this.currentUser.username === this.loginForm.value.username) {
           this.jraduserService.loginjradUser(this.currentUser);
           this.globalvariableService.setCurentUser(this.currentUser);
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/homepage');
 
           }
   }
