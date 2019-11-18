@@ -6,6 +6,8 @@ import { RegisterComponent } from "./components/register/register.component";
 import { NewPostComponent } from "./components/newpost/newpost.component";
 import { RecipeComponent } from "./components/recipe/recipe.component";
 import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { ModeratorComponent } from './components/moderator/moderator.component';
 
 const routes: Routes = [
   { path: "register", component: RegisterComponent },
@@ -13,7 +15,10 @@ const routes: Routes = [
   { path: "newpost", component: NewPostComponent },
   { path: "recipe", component: RecipeComponent },
   { path: "homepage", component: HomeComponent },
-  { path: "mainpage", component: MainpageComponent }
+  { path: "", component: MainpageComponent },
+  { path: "**", component: MainpageComponent},
+  { path: "admin", component: AdministratorComponent},
+  { path: "mod", component: ModeratorComponent}
 ];
 
 @NgModule({

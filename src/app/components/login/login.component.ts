@@ -5,6 +5,8 @@ import { JradUserService } from "src/app/services/jradUser/jrad-user.service";
 import {GlobalVariablesService} from "src/app/services/globalVariables/global-variables.service";
 import { JradUser } from 'src/app/models/JradUser';
 import { Router, ActivatedRoute} from '@angular/router';
+import { Role } from 'src/app/models/Role';
+import { RoleService } from 'src/app/services/role/role.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,10 +16,15 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   currentUser: JradUser;
+  userRole: Role;
+  loggedUser: JradUser;
+
+
   constructor(private fb: FormBuilder,
               private jraduserService: JradUserService,
               private globalvariableService: GlobalVariablesService,
-              public router: Router
+              public router: Router,
+              private rs: RoleService
     ) { }
 
   ngOnInit() {
@@ -28,24 +35,53 @@ export class LoginComponent implements OnInit {
 
 
     });
+    this.rs.getRoleByRole("User").subscribe(// change to get by id after admin/moderator views are there
+      data => {
+        this.userRole = data;
+        console.log(this.userRole);
+      },
+      err => console.log("error")
+    );
+
 
   }
   onSubmit() {
-    this.jraduserService.getUserByUsername(this.loginForm.value.username).subscribe(
-      data => {
-        this.currentUser = data;
-        // console.log(this.currentUser);
-        // console.log(this.currentUser.password);
-
-        if (this.loginForm.valid) {
-          if (this.currentUser.email === this.loginForm.value.email && this.currentUser.username === this.loginForm.value.username) {
-          this.jraduserService.loginjradUser(this.currentUser);
+    this.currentUser = new JradUser(
+      0,
+      this.loginForm.value.username,
+      this.loginForm.value.password,
+      "test",
+      "test",
+      "test",
+      0,
+      this.userRole
+    );
+    console.log(this.currentUser);
+    if (this.loginForm.valid) {
+          this.jraduserService.loginjradUser(this.currentUser).subscribe(
+            data => {
+              this.loggedUser = data;
+              console.log(this.loggedUser);
+            }
+          ); }
+    if (this.loggedUser != null ) {
+      if (this.loggedUser.role.role === "Administrator") {
           this.globalvariableService.setCurentUser(this.currentUser);
-          this.router.navigateByUrl('/homepage');
+          this.router.navigateByUrl('/admin');
 
+      // tslint:disable-next-line: align
+      } if (this.loggedUser.role.role === "Moderator") {
+        this.globalvariableService.setCurentUser(this.currentUser);
+        this.router.navigateByUrl('/mod');
+      }
+      if (this.loggedUser.role.role === "User") {
+          this.globalvariableService.setCurentUser(this.currentUser);
+          this.router.navigateByUrl('/newpost');
+        }
+          } else {
+          // possible landing page or validation service, making it a stretch goal for now
+          console.log("Login Unsuccessful");
           }
-  }
-});
 
 }
-  }
+}

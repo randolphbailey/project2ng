@@ -13,6 +13,8 @@ import { ControlMessagesComponent } from "src/app/components/register/control-me
 import { RecipeComponent } from "./components/recipe/recipe.component";
 import { NewcommentComponent } from "./components/newcomment/newcomment.component";
 import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { ModeratorComponent } from './components/moderator/moderator.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MainpageComponent } from './components/mainpage/mainpage.component';
     ControlMessagesComponent,
     RecipeComponent,
     NewcommentComponent,
-    MainpageComponent
+    MainpageComponent,
+    AdministratorComponent,
+    ModeratorComponent
   ],
   imports: [
     BrowserModule,

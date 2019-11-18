@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {GlobalVariablesService} from "src/app/services/globalVariables/global-variables.service";
+import { JradUser } from 'src/app/models/JradUser';
 
 @Component({
   selector: "app-home",
@@ -8,13 +9,15 @@ import {GlobalVariablesService} from "src/app/services/globalVariables/global-va
 })
 export class HomeComponent implements OnInit {
 
+  user: JradUser;
   constructor(    private globalvariableService: GlobalVariablesService,
     ) {
 
     }
 
   ngOnInit() {
-    console.log(this.globalvariableService.getCurrentUser());
+    this.user = this.globalvariableService.getCurrentUser();
+
 
 
   }
