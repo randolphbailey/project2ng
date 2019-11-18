@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import {GlobalVariablesService} from "src/app/services/globalVariables/global-variables.service";
 
 @Component({
   selector: "app-home",
@@ -6,7 +7,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(    private globalvariableService: GlobalVariablesService,
+    ) {
 
-  ngOnInit() {}
+    }
+
+  ngOnInit() {
+    console.log(this.globalvariableService.getCurrentUser());
+  }
+
+
 }
