@@ -1,13 +1,28 @@
 <div class="login-form">
       <h2 class="text-center">Log in</h2>
+      <form [formGroup] = "loginForm" (ngSubmit) = "onSubmit()">
       <div class="form-group">
-          <input type="text" value = "" class="form-control" name = "username" placeholder="Username" required="required">
+
+        <input type="text" value = "" formControlName = "username" class="form-control" name = "username" placeholder="Username" required="required">
+        <control-messages [control] = "loginForm.get('username')"></control-messages>
+
       </div>
       <div class="form-group">
-          <input type="password" value = "" class="form-control" name = "passphrase" placeholder="Password" required="required">
+
+        <input type="text" value = "" formControlName = "email" class="form-control" name = "email" placeholder="Email" required="required">
+        <control-messages [control] = "loginForm.get('email')"></control-messages>
+
+      </div>
+      <div class="form-group">
+        <input type="password" value = "" formControlName = "password" class="form-control" name = "password" placeholder="Password" required="required">
+        <control-messages [control] = "loginForm.get('password')"></control-messages>
+
       </div>
       <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block">Log in</button>
       </div>
+    </form>
 
 </div>
+
+
