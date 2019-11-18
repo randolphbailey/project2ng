@@ -7,12 +7,11 @@ import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { NewPostComponent } from './components/newpost/newpost.component';
-import { ControlMessagesComponent } from 'src/app/components/register/control-messages.component';
-import { RecipeComponent } from './components/recipe/recipe.component';
-
-
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NewPostComponent } from "./components/newpost/newpost.component";
+import { ControlMessagesComponent } from "src/app/components/register/control-messages.component";
+import { RecipeComponent } from "./components/recipe/recipe.component";
+import { NewcommentComponent } from "./components/newcomment/newcomment.component";
 
 @NgModule({
   declarations: [
@@ -22,11 +21,18 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     RegisterComponent,
     NewPostComponent,
     ControlMessagesComponent,
-    RecipeComponent
+    RecipeComponent,
+    NewcommentComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule,
-    HttpClientModule, ReactiveFormsModule, FormsModule],
-    providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
