@@ -7,6 +7,7 @@ import {GlobalVariablesService} from "src/app/services/globalVariables/global-va
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
+
   constructor(    private globalvariableService: GlobalVariablesService,
     ) {
 
@@ -14,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.globalvariableService.getCurrentUser());
+
+
   }
 
 
