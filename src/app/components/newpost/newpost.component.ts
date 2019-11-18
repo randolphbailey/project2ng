@@ -34,7 +34,7 @@ export class NewPostComponent {
     }
   }
 
-  processFile(imageInput: any) {
+  processFile() {
     return false;
   }
 }
