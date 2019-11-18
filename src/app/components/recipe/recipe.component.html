@@ -11,8 +11,19 @@
   Search!
 </button>
 
-<div class="card" *ngFor="let r of recipes">
-  <div class="card-body">
-    <p>{{ r.label }}</p>
+<div class="row">
+  <div class="col-sm-12 col-md-4" *ngFor="let r of recipes">
+    <div class="card">
+      <img class="img-fluid" src="{{ r.image }}" />
+      <div class="card-body">
+        <p>{{ r.label }}</p>
+        <p>Calories: {{ r.calories }}</p>
+        <ol>
+          <li *ngFor="let l of r.ingredientLines">
+            {{ l }}
+          </li>
+        </ol>
+      </div>
+    </div>
   </div>
 </div>
