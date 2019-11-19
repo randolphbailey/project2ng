@@ -20,7 +20,7 @@ export class JradUserService {
   getUserByUsername(jraduser: String){
     return this.http.get<JradUser>("http://api.jradrecipes.club//jradUser/getByUsername/" + jraduser);
   }
-  loginjradUser(jraduser: JradUser){
-    return this.http.post<JradUser>(this.login , jraduser);
+  loginjradUser(jraduser: JradUser) {
+     return this.http.post<JradUser>(this.login , jraduser);
   }
 }

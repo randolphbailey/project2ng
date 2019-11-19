@@ -12,6 +12,9 @@ import { NewPostComponent } from "./components/newpost/newpost.component";
 import { ControlMessagesComponent } from "src/app/components/register/control-messages.component";
 import { RecipeComponent } from "./components/recipe/recipe.component";
 import { NewcommentComponent } from "./components/newcomment/newcomment.component";
+import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { ModeratorComponent } from './components/moderator/moderator.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { NewcommentComponent } from "./components/newcomment/newcomment.componen
     NewPostComponent,
     ControlMessagesComponent,
     RecipeComponent,
-    NewcommentComponent
+    NewcommentComponent,
+    MainpageComponent,
+    AdministratorComponent,
+    ModeratorComponent
   ],
   imports: [
     BrowserModule,

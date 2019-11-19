@@ -50,11 +50,11 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       this.newUser = new JradUser(
         0,
-        "test",
-        "test",
-        "Test",
-        "test",
-        "test",
+        this.registerForm.value.username,
+        this.registerForm.value.password,
+        this.registerForm.value.firstname,
+        this.registerForm.value.lastname,
+        this.registerForm.value.email,
         0,
         this.userRole
       );
