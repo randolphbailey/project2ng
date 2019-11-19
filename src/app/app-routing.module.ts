@@ -9,7 +9,6 @@ import { RecipeComponent } from "./components/recipe/recipe.component";
 const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
-  { path: "newpost", component: NewPostComponent },
   { path: "recipe", component: RecipeComponent },
   { path: "", component: HomeComponent },
   { path: "**", component: HomeComponent }

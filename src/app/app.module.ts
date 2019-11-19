@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewPostComponent } from './components/newpost/newpost.component';
 import { ControlMessagesComponent } from 'src/app/components/register/control-messages.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { NewcommentComponent } from './components/newcomment/newcomment.component';
+import { PoststructureComponent } from './components/poststructure/poststructure.component';
 
 
 
@@ -22,7 +24,9 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     RegisterComponent,
     NewPostComponent,
     ControlMessagesComponent,
-    RecipeComponent
+    RecipeComponent,
+    NewcommentComponent,
+    PoststructureComponent
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule,
     HttpClientModule, ReactiveFormsModule, FormsModule],
