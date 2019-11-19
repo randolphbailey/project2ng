@@ -10,17 +10,17 @@
         <div class="container">
           <div class="form-group">
               <label for="title">Title:</label>
-              <input type="text" class="form-control" name="title" id="" aria-describedby="title" #posttitle>
+              <input type="text" class="form-control" name="posttitle" id="posttitle" aria-describedby="title" #posttitle>
               <hr>
               <label for="post">Post:</label>
-              <textarea class="form-control" id="post" rows="3" #postcontent></textarea>
+              <textarea class="form-control" id="postcontent" rows="3" #postcontent></textarea>
               <hr>
           </div>
         </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Publish Post</button>
+      <button type="submit" class="btn btn-outline-dark" (click)="publishPost(posttitle, postcontent)">Publish Post</button>
     </div>
   </ng-template>
   
