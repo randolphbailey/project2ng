@@ -1,7 +1,35 @@
-<!-- <div class="card" *ngFor="let u of this.currentUser">
-  <div class="card-body">
-    <p>Welcome!</p>
-    <p>{{ u.username }}</p>
-  </div>
-</div> -->
-<p>Welcome User!</p>
+<h4><small>RECENT POSTS</small></h4>
+  <h2>Heading and stuff</h2>
+
+
+      <div class="col-md-9">
+        <div class="col-md-12 col-md-4" *ngFor="let p of allpost">
+          <div class="card">
+              <br>
+              <ol>
+                <h5> <span class="glyphicon glyphicon-time"> Time Created: {{p.created}}</span></h5>
+                <li>
+                  <h6 class = "glyphicon glyphicon-user"> JradUser: {{p.jradUser.username}} </h6>
+                  <p>
+                  {{ p.content }}
+                  </p>
+                </li>
+                <br><br>
+              </ol>
+              <br><br>
+              <h4>Leave a Comment:</h4>
+              <form [formGroup] = "commentForm" (ngSubmit) = "onSubmit()">
+                <div class="form-group">
+                  <textarea class="form-control" formControlName = "comment" rows="3"></textarea>
+                  <control-messages [control] = "commentForm.get('comment')"></control-messages>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+              <br><br>
+            </div>
+          </div>
+        </div>
+<br>
+
+
+
