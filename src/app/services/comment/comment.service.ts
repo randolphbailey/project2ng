@@ -17,4 +17,11 @@ export class CommentService {
       "http://api.jradrecipes.club/comment/getByPost/" + id
     );
   }
+
+  createComment(c: Comment) {
+    return this.http.post<Comment>(
+      "http://api.jradrecipes.club/comment/create",
+      c
+    );
+  }
 }

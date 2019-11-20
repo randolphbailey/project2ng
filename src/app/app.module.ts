@@ -16,6 +16,7 @@ import { MainpageComponent } from "./components/mainpage/mainpage.component";
 import { AdministratorComponent } from "./components/administrator/administrator.component";
 import { ModeratorComponent } from "./components/moderator/moderator.component";
 import { CommentsComponent } from "./components/comments/comments.component";
+import { NewcommentComponent } from './components/newcomment/newcomment.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CommentsComponent } from "./components/comments/comments.component";
     MainpageComponent,
     AdministratorComponent,
     ModeratorComponent,
-    CommentsComponent
+    CommentsComponent,
+    NewcommentComponent
   ],
   imports: [
     BrowserModule,

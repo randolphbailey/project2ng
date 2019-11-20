@@ -19,4 +19,11 @@ export class CommentsComponent implements OnInit {
       err => console.log(err)
     );
   }
+
+  refresh() {
+    this.cs.getCommentsByPost(this.postId).subscribe(
+      data => (this.comments = data),
+      err => console.log(err)
+    );
+  }
 }
