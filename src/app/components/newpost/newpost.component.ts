@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
+import {GlobalVariablesService} from "src/app/services/globalVariables/global-variables.service";
 
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
+import { JradUser } from 'src/app/models/JradUser';
 
 @Component({
   selector: "app-newpost",
@@ -8,9 +10,14 @@ import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 })
 export class NewPostComponent {
   closeResult: string;
+  user: JradUser;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private globalvariableService: GlobalVariablesService) {}
 
+  ngOnInit() {
+    this.user = this.globalvariableService.getCurrentUser();
+
+  }
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: "modal-basic-title" })

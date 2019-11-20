@@ -7,6 +7,8 @@ import { JradUser } from 'src/app/models/JradUser';
 import { Router, ActivatedRoute} from '@angular/router';
 import { Role } from 'src/app/models/Role';
 import { RoleService } from 'src/app/services/role/role.service';
+import { ValidationService } from "src/app/components/register/validation.service";
+import { LoginvalidationService } from './loginvalidation.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,14 +20,21 @@ export class LoginComponent implements OnInit {
   currentUser: JradUser;
   userRole: Role;
   loggedUser: JradUser;
-
+  show: Boolean;
+  loggedusername: string;
+  loggedpassword: string;
+  loggedrole: string;
+  loggedemail: string;
+  invalid: string;
 
   constructor(private fb: FormBuilder,
               private jraduserService: JradUserService,
               private globalvariableService: GlobalVariablesService,
               public router: Router,
               private rs: RoleService
-    ) { }
+    ) {
+      this.invalid = 'This login is invalid, please put in correct credentials and try again.';
+    }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -50,38 +59,45 @@ export class LoginComponent implements OnInit {
       0,
       this.loginForm.value.username,
       this.loginForm.value.password,
-      "test",
+      this.loginForm.value.email,
       "test",
       "test",
       0,
       this.userRole
     );
-    console.log(this.currentUser);
+
     if (this.loginForm.valid) {
           this.jraduserService.loginjradUser(this.currentUser).subscribe(
             data => {
               this.loggedUser = data;
-              console.log(this.loggedUser);
-            }
-          ); }
-    if (this.loggedUser != null ) {
-      if (this.loggedUser.role.role === "Administrator") {
+              this.loggedusername = this.loggedUser.username; //had to this or it would yell at me for doing this.loggedUser.username etc later
+              this.loggedpassword = this.loggedUser.password;
+              this.loggedrole = this.loggedUser.role.role;
+              this.loggedemail = this.loggedUser.email;
+              console.log(this.loggedusername);
+            });
+          }
+    // tslint:disable-next-line: max-line-length
+    if (this.loggedusername !== 'invalid') {
+      if (this.loggedrole === "Administrator") {
           this.globalvariableService.setCurentUser(this.currentUser);
           this.router.navigateByUrl('/admin');
 
       // tslint:disable-next-line: align
-      } if (this.loggedUser.role.role === "Moderator") {
+      } if (this.loggedrole === "Moderator") {
         this.globalvariableService.setCurentUser(this.currentUser);
         this.router.navigateByUrl('/mod');
       }
-      if (this.loggedUser.role.role === "User") {
+      if (this.loggedrole === "User") {
           this.globalvariableService.setCurentUser(this.currentUser);
           this.router.navigateByUrl('/newpost');
-        }
+          }
           } else {
-          // possible landing page or validation service, making it a stretch goal for now
-          console.log("Login Unsuccessful");
+            this.show = true;
           }
 
 }
-}
+
+  }
+
+
