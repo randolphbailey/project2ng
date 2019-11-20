@@ -44,7 +44,7 @@ export class NewcommentComponent implements OnInit {
     }
   }
 
-  publishComment(this.post) {
+  publishComment() {
 
     console.log("publishComment called");
 
