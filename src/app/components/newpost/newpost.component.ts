@@ -20,14 +20,32 @@ export class NewPostComponent {
   role: Role;
   postTitle: string;
   postContent: string;
-
+  createdpost: Post;
+  poststatus: string;
+  oldpost: Post[] = [];
   constructor(
     private modalService: NgbModal,
     private globalvariableservice: GlobalVariablesService,
     private ps: PostService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.jraduser);
+    console.log(this.globalvariableservice.getCurrentUser());
+    this.jraduser = this.globalvariableservice.getCurrentUser();
+    // this.currentuser = this.user.username;
+    console.log(this.jraduser);
+    this.ps.getPostByUser(this.jraduser.username).subscribe(
+      data => {
+      this.oldpost = [];
+      this.oldpost = data;
+      console.log(this.oldpost);
+      },
+      error => console.log(error)
+      );
+
+  }
+
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: "modal-basic-title" })
@@ -73,8 +91,11 @@ export class NewPostComponent {
 
     console.log(this.post);
     this.ps.createPost(this.post).subscribe(
-      data => console.log(data),
-      err => console.log(err)
+      data => {
+
+      this.createdpost.status.status = this.poststatus;
+      console.log(data),
+      err => console.log(err)}
     );
   }
 }

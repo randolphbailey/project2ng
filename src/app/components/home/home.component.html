@@ -1,14 +1,20 @@
-<!-- <div class="card">
-  <div class="card-body">
-    <p>Welcome!</p>
-    <p>{{user.username}}</p>
-  </div>
-</div>
-<p>Welcome User!</p>
+<h4><small>RECENT POSTS</small></h4>
+  <h2>Heading and stuff</h2>
 
-<form role="form">
-  <div class="form-group">
-    <textarea class="form-control" rows="3" required></textarea>
-  </div>
-  <button type="submit" class="btn btn-success">Submit</button>
-</form> -->
+
+      <div class="col-sm-2">
+        <div class="col-sm-12 col-md-4" *ngFor="let p of oldpost">
+          <div class="card">
+              <ol>
+                <span class="glyphicon glyphicon-time">{{p.created}}</span>
+                <li>
+                  {{ p.content }}
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+<br>
+
+
+
