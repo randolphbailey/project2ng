@@ -11,6 +11,7 @@ import { Post } from "src/app/models/Post";
 })
 export class MainpageComponent implements OnInit {
   posts: Post[] = [];
+  currentUser: JradUser;
 
   constructor(
     private globalvariableservice: GlobalVariablesService,
@@ -18,6 +19,14 @@ export class MainpageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.currentUser = this.globalvariableservice.getCurrentUser();
+    this.ps.getAllPosts().subscribe(
+      data => (this.posts = data),
+      err => console.log(err)
+    );
+  }
+
+  refresh() {
     this.ps.getAllPosts().subscribe(
       data => (this.posts = data),
       err => console.log(err)

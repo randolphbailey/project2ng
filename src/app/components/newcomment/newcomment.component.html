@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h5>New Comment</h5>
+        <textarea
+          name="newcomment"
+          class="form-control mb-1"
+          [(ngModel)]="commentText"
+        ></textarea>
+        <button class="btn btn-primary" (click)="newComment()">
+          Submit Comment
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
