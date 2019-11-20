@@ -13,8 +13,9 @@ import { ControlMessagesComponent } from 'src/app/components/register/control-me
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { NewcommentComponent } from './components/newcomment/newcomment.component';
 import { PoststructureComponent } from './components/poststructure/poststructure.component';
-
-
+import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { ModeratorComponent } from './components/moderator/moderator.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,20 @@ import { PoststructureComponent } from './components/poststructure/poststructure
     ControlMessagesComponent,
     RecipeComponent,
     NewcommentComponent,
-    PoststructureComponent
+    PoststructureComponent,
+    MainpageComponent,
+    AdministratorComponent,
+    ModeratorComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule,
-    HttpClientModule, ReactiveFormsModule, FormsModule],
-    providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { Post } from "src/app/models/Post";
 import { Status } from "src/app/models/Status";
@@ -28,6 +27,10 @@ export class NewPostComponent {
     private ps: PostService
   ) {}
 
+  ngOnInit() {
+    this.user = this.globalvariableService.getCurrentUser();
+
+  }
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: "modal-basic-title" })
