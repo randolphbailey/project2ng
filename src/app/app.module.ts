@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewPostComponent } from './components/newpost/newpost.component';
 import { ControlMessagesComponent } from 'src/app/components/register/control-messages.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
-import { NewcommentComponent } from './components/newcomment/newcomment.component';
 import { PoststructureComponent } from './components/poststructure/poststructure.component';
 import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
@@ -27,7 +26,6 @@ import { CommentsComponent } from './components/comments/comments.component';
     NewPostComponent,
     ControlMessagesComponent,
     RecipeComponent,
-    NewcommentComponent,
     PoststructureComponent,
     MainpageComponent,
     AdministratorComponent,
