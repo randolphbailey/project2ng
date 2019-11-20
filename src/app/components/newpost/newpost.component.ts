@@ -19,6 +19,8 @@ export class NewPostComponent {
   post: Post;
   clickString: string;
   role: Role;
+  postTitle: string;
+  postContent: string;
 
   constructor(
     private modalService: NgbModal,
@@ -49,33 +51,36 @@ export class NewPostComponent {
     }
   }
 
-  publishPost(postcontent, posttitle) {
-    console.log(postcontent.value);
-    console.log(posttitle.value);
-
+  publishPost() {
+    console.log("publishPost called");
     this.status = new Status(4, "Public");
+    console.log(this.status);
     this.role = new Role(3, "User");
+    console.log(this.role);
     this.jraduser = new JradUser(
-      0,
+      1,
       "test",
-      "test",
-      "test",
+      "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+      "Test",
       "test",
       "test",
       0,
       this.role
     );
-
+    console.log(this.jraduser);
     this.post = new Post(
       0,
-      posttitle,
-      postcontent,
+      this.postTitle,
+      this.postContent,
       0,
       0,
       this.jraduser,
       this.status
     );
-
-    this.ps.createPost(this.post);
+    console.log(this.post);
+    this.ps.createPost(this.post).subscribe(
+      data => console.log(data),
+      err => console.log(err)
+    );
   }
 }
