@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Post } from "src/app/models/Post";
+import { Status } from "src/app/models/Status";
+import { GlobalVariablesService } from "src/app/services/globalVariables/global-variables.service";
+import { JradUser } from "src/app/models/JradUser";
+import { CommentService } from "src/app/services/comment/comment.service";
+import { Comment } from "src/app/models/Comment";
 
 @Component({
   selector: 'app-newcomment',
@@ -9,6 +15,11 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewcommentComponent implements OnInit {
   closeResult: string;
+  commentId: number;
+  jraduser: JradUser;
+  post: Post;
+  commentContent: string;
+
 
   constructor(private modalService: NgbModal) { }
 
@@ -31,6 +42,28 @@ export class NewcommentComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  publishComment(this.post) {
+
+    console.log("publishComment called");
+
+    console.log(this.post);
+
+    this.jraduser = this.globalvariableservice.getCurrentUser();
+    console.log(this.jraduser);
+
+    this.comment = new Comment(0,
+      this.commentContent,
+      0,
+      this.jraduser,
+      this.post);
+
+    console.log(this.comment);
+    this.pc.createComment(this.comment).subscribe(
+      data => console.log(data),
+      err => console.log(err)
+    );
   }
 
 }

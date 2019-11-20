@@ -17,7 +17,6 @@ export class NewPostComponent {
   jraduser: JradUser;
   status: Status;
   post: Post;
-  clickString: string;
   role: Role;
   postTitle: string;
   postContent: string;

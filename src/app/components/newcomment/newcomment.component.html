@@ -10,7 +10,7 @@
         <div class="container">
           <div class="form-group">
               <label for="commentcontent">Comment:</label>
-              <textarea class="form-control" id="post" rows="3"></textarea>
+              <textarea class="form-control" name="commentContent" id="commentContent" [(ngModel)]="commentContent" rows="3"></textarea>
           </div>
           <!--<button class="btn btn-default" (click)="publishPost(newTitle, newLink)">Publish Post</button>-->
       </div>
