@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { Post } from "src/app/models/Post";
 import { Status } from "src/app/models/Status";
@@ -11,7 +11,7 @@ import { Role } from "src/app/models/Role";
   selector: "app-newpost",
   templateUrl: "./newpost.component.html"
 })
-export class NewPostComponent {
+export class NewPostComponent implements OnInit {
   closeResult: string;
   jraduser: JradUser;
   status: Status;
@@ -36,13 +36,12 @@ export class NewPostComponent {
     console.log(this.jraduser);
     this.ps.getPostByUser(this.jraduser.username).subscribe(
       data => {
-      this.oldpost = [];
-      this.oldpost = data;
-      console.log(this.oldpost);
+        this.oldpost = [];
+        this.oldpost = data;
+        console.log(this.oldpost);
       },
       error => console.log(error)
-      );
-
+    );
   }
 
   open(content) {
@@ -89,12 +88,9 @@ export class NewPostComponent {
     );
 
     console.log(this.post);
-    this.ps.createPost(this.post).subscribe(
-      data => {
-
+    this.ps.createPost(this.post).subscribe(data => {
       this.createdpost.status.status = this.poststatus;
-      console.log(data),
-      err => console.log(err)}
-    );
+      console.log(data), err => console.log(err);
+    });
   }
 }

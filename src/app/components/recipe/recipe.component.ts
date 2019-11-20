@@ -18,7 +18,7 @@ export class RecipeComponent implements OnInit {
   getRecipes() {
     this.rs.getRecipes(this.recipeQuery).subscribe(
       data => {
-        this.recipes = []
+        this.recipes = [];
         data.hits.forEach(element => {
           this.recipes.push(element.recipe);
         });
