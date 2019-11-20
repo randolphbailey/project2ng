@@ -3,12 +3,15 @@
     <div class="card">
       <div class="card-body">
         <h2>{{ p.title }}</h2>
-        <p class="gray">({{ p.jradUser.username }})</p>
+        <p class="text-muted">
+          ({{ p.jradUser.username }}) | {{ p.created | date: "medium" }}
+        </p>
         <p>{{ p.content }}</p>
         <app-comments [postId]="p.id"></app-comments>
         <app-newcomment
           [associatedPost]="p"
           (myEvent)="refresh()"
+          *ngIf="userIsLoggedIn"
         ></app-newcomment>
       </div>
     </div>

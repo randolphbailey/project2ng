@@ -12,14 +12,15 @@ import { Post } from "src/app/models/Post";
 export class MainpageComponent implements OnInit {
   posts: Post[] = [];
   currentUser: JradUser;
+  userIsLoggedIn: boolean = false;
 
-  constructor(
-    private globalvariableservice: GlobalVariablesService,
-    private ps: PostService
-  ) {}
+  constructor(private gvs: GlobalVariablesService, private ps: PostService) {}
 
   ngOnInit() {
-    this.currentUser = this.globalvariableservice.getCurrentUser();
+    this.currentUser = this.gvs.getCurrentUser();
+    if (this.currentUser !== undefined) {
+      this.userIsLoggedIn = true;
+    }
     this.ps.getAllPosts().subscribe(
       data => (this.posts = data),
       err => console.log(err)

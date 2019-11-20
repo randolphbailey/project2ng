@@ -2,6 +2,9 @@
   <div class="col-12 mb-1" *ngFor="let c of comments">
     <div class="card">
       <div class="card-body">
+        <p class="text-muted">
+          ({{ c.jradUser.username }}) | {{ c.created | date: "medium" }}
+        </p>
         <p>{{ c.content }}</p>
       </div>
     </div>
