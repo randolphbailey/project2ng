@@ -11,4 +11,10 @@ export class CommentService {
   getAllComments() {
     return this.http.get<Comment[]>("http://api.jradrecipes.club/comment/all");
   }
+
+  getCommentsByPost(id: number) {
+    return this.http.get<Comment[]>(
+      "http://api.jradrecipes.club/comment/getByPost/" + id
+    );
+  }
 }

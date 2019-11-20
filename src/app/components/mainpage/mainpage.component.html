@@ -1,1 +1,7 @@
-
+<div class="row">
+  <div class="col-12" *ngFor="let p of posts">
+    <h2>{{ p.title }}</h2>
+    <p>{{ p.content }}</p>
+    <app-comments [postId]="p.id"></app-comments>
+  </div>
+</div>
