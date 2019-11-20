@@ -16,6 +16,7 @@ import { PoststructureComponent } from './components/poststructure/poststructure
 import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { ModeratorComponent } from './components/moderator/moderator.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ModeratorComponent } from './components/moderator/moderator.component';
     PoststructureComponent,
     MainpageComponent,
     AdministratorComponent,
-    ModeratorComponent
+    ModeratorComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
