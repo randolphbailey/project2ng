@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: "admin", component: AdministratorComponent},
   { path: "mod", component: ModeratorComponent},
   { path: "**", component: MainpageComponent}
+
 ];
 
 @NgModule({
