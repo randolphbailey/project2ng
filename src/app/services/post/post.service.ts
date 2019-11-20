@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from 'src/app/models/Post';
+import { JradUser } from 'src/app/models/JradUser';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class PostService {
     );
   }
 
-  
+  getPostByUser(jraduser: string) {
+    return this.http.get<Post[]>("http://api.jradrecipes.club/post/getByUser/" + jraduser);
+  }
+
+
 }

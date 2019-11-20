@@ -70,6 +70,7 @@ export class LoginComponent implements OnInit {
           this.jraduserService.loginjradUser(this.currentUser).subscribe(
             data => {
               this.loggedUser = data;
+              this.globalvariableService.setCurentUser(this.loggedUser);
               this.loggedusername = this.loggedUser.username; //had to this or it would yell at me for doing this.loggedUser.username etc later
               this.loggedpassword = this.loggedUser.password;
               this.loggedrole = this.loggedUser.role.role;
@@ -80,16 +81,13 @@ export class LoginComponent implements OnInit {
     // tslint:disable-next-line: max-line-length
     if (this.loggedusername !== 'invalid') {
       if (this.loggedrole === "Administrator") {
-          this.globalvariableService.setCurentUser(this.currentUser);
           this.router.navigateByUrl('/admin');
 
       // tslint:disable-next-line: align
       } if (this.loggedrole === "Moderator") {
-        this.globalvariableService.setCurentUser(this.currentUser);
         this.router.navigateByUrl('/mod');
       }
       if (this.loggedrole === "User") {
-          this.globalvariableService.setCurentUser(this.currentUser);
           this.router.navigateByUrl('/newpost');
           }
           } else {
