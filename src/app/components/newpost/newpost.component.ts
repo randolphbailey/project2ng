@@ -27,10 +27,7 @@ export class NewPostComponent {
     private ps: PostService
   ) {}
 
-  ngOnInit() {
-    this.user = this.globalvariableService.getCurrentUser();
-
-  }
+  ngOnInit() {}
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: "modal-basic-title" })
