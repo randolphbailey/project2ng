@@ -45,6 +45,7 @@ export class NewPostComponent {
       );
 
   }
+
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: "modal-basic-title" })
