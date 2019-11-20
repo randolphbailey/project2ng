@@ -12,13 +12,13 @@ import { ModeratorComponent } from './components/moderator/moderator.component';
 const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
-  { path: "newpost", component: NewPostComponent },
   { path: "recipe", component: RecipeComponent },
+  { path: "newpost", component: NewPostComponent },
   { path: "homepage", component: HomeComponent },
   { path: "", component: MainpageComponent },
-  { path: "**", component: MainpageComponent},
   { path: "admin", component: AdministratorComponent},
-  { path: "mod", component: ModeratorComponent}
+  { path: "mod", component: ModeratorComponent},
+  { path: "**", component: MainpageComponent}
 ];
 
 @NgModule({

@@ -21,44 +21,30 @@
           <input
             type="text"
             class="form-control"
-            name="title"
-            id=""
+            name="posttitle"
+            id="posttitle"
             aria-describedby="title"
-            #newTitle
+            [(ngModel)]="postTitle"
           />
           <hr />
           <label for="post">Post:</label>
-          <textarea class="form-control" id="post" rows="3"></textarea>
-          <hr />
-          <label class="image-upload-container btn btn-bwm">
-            <span>Image Selection:</span>
-            <hr />
-            <input
-              #newImage
-              type="file"
-              accept="image/*"
-              (change)="processFile()"
-            />
-          </label>
-          <hr />
-          <label class="form-control" for="postvisibility"
-            >Post Visibility:</label
-          >
-          <select class="form-control" id="postvisibility">
-            <option selected value="0">Public</option>
-            <option value="1">Private</option>
-          </select>
+          <textarea
+            class="form-control"
+            name="postcontent"
+            id="postcontent"
+            rows="3"
+            [(ngModel)]="postContent"
+          ></textarea>
+          <!-- <hr />
+          {{ postTitle }}
+          <br />
+          {{ postContent }} -->
         </div>
-        <!--<button class="btn btn-default" (click)="publishPost(newTitle, newLink)">Publish Post</button>-->
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-    >
+    <button type="submit" class="btn btn-outline-dark" (click)="modal.close(publishPost())">
       Publish Post
     </button>
   </div>

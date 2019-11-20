@@ -1,8 +1,11 @@
 import { Component } from "@angular/core";
-import {GlobalVariablesService} from "src/app/services/globalVariables/global-variables.service";
-
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
-import { JradUser } from 'src/app/models/JradUser';
+import { Post } from "src/app/models/Post";
+import { Status } from "src/app/models/Status";
+import { GlobalVariablesService } from "src/app/services/globalVariables/global-variables.service";
+import { JradUser } from "src/app/models/JradUser";
+import { PostService } from "src/app/services/post/post.service";
+import { Role } from "src/app/models/Role";
 
 @Component({
   selector: "app-newpost",
@@ -10,9 +13,19 @@ import { JradUser } from 'src/app/models/JradUser';
 })
 export class NewPostComponent {
   closeResult: string;
-  user: JradUser;
+  jraduser: JradUser;
+  status: Status;
+  post: Post;
+  clickString: string;
+  role: Role;
+  postTitle: string;
+  postContent: string;
 
-  constructor(private modalService: NgbModal, private globalvariableService: GlobalVariablesService) {}
+  constructor(
+    private modalService: NgbModal,
+    private globalvariableservice: GlobalVariablesService,
+    private ps: PostService
+  ) {}
 
   ngOnInit() {
     this.user = this.globalvariableService.getCurrentUser();
@@ -41,7 +54,30 @@ export class NewPostComponent {
     }
   }
 
-  processFile() {
-    return false;
+  publishPost() {
+    console.log("publishPost called");
+    this.status = new Status(4, "Public");
+    console.log(this.status);
+    this.role = new Role(3, "User");
+    console.log(this.role);
+
+    this.jraduser = this.globalvariableservice.getCurrentUser();
+    console.log(this.jraduser);
+
+    this.post = new Post(
+      0,
+      this.postTitle,
+      this.postContent,
+      0,
+      0,
+      this.jraduser,
+      this.status
+    );
+
+    console.log(this.post);
+    this.ps.createPost(this.post).subscribe(
+      data => console.log(data),
+      err => console.log(err)
+    );
   }
 }
