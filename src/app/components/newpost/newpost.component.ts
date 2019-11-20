@@ -39,7 +39,7 @@ export class NewPostComponent {
       data => {
       this.oldpost = [];
       this.oldpost = data;
-      console.log(this.oldpost)
+      console.log(this.oldpost);
       },
       error => console.log(error)
       );
