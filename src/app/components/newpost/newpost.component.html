@@ -32,16 +32,16 @@
             rows="3"
             [(ngModel)]="postContent"
           ></textarea>
-          <hr />
+          <!-- <hr />
           {{ postTitle }}
           <br />
-          {{ postContent }}
+          {{ postContent }} -->
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-outline-dark" (click)="publishPost()">
+    <button type="submit" class="btn btn-outline-dark" (click)="modal.close(publishPost())">
       Publish Post
     </button>
   </div>

@@ -24,7 +24,7 @@ export class NewPostComponent {
 
   constructor(
     private modalService: NgbModal,
-    private globalvariableService: GlobalVariablesService,
+    private globalvariableservice: GlobalVariablesService,
     private ps: PostService
   ) {}
 
@@ -57,17 +57,10 @@ export class NewPostComponent {
     console.log(this.status);
     this.role = new Role(3, "User");
     console.log(this.role);
-    this.jraduser = new JradUser(
-      1,
-      "test",
-      "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
-      "Test",
-      "test",
-      "test",
-      0,
-      this.role
-    );
+
+    this.jraduser = this.globalvariableservice.getCurrentUser();
     console.log(this.jraduser);
+
     this.post = new Post(
       0,
       this.postTitle,
@@ -77,6 +70,7 @@ export class NewPostComponent {
       this.jraduser,
       this.status
     );
+
     console.log(this.post);
     this.ps.createPost(this.post).subscribe(
       data => console.log(data),
