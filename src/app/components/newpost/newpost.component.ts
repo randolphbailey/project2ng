@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { Post } from "src/app/models/Post";
 import { Status } from "src/app/models/Status";
@@ -12,6 +12,7 @@ import { Role } from "src/app/models/Role";
   templateUrl: "./newpost.component.html"
 })
 export class NewPostComponent implements OnInit {
+  @Output() myEvent = new EventEmitter<string>();
   closeResult: string;
   jraduser: JradUser;
   status: Status;
@@ -57,6 +58,10 @@ export class NewPostComponent implements OnInit {
       );
   }
 
+  refreshParent() {
+    this.myEvent.emit("refresh");
+  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return "by pressing ESC";
@@ -88,9 +93,11 @@ export class NewPostComponent implements OnInit {
     );
 
     console.log(this.post);
-    this.ps.createPost(this.post).subscribe(data => {
-      this.createdpost.status.status = this.poststatus;
-      console.log(data), err => console.log(err);
-    });
+    this.ps.createPost(this.post).subscribe(
+      data => {
+        this.refreshParent();
+      },
+      err => console.log(err)
+    );
   }
 }
