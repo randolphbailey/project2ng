@@ -8,6 +8,7 @@ import {
   Validators,
   FormBuilder
 } from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
 import { ValidationService } from "src/app/components/register/validation.service";
 import { Role } from "src/app/models/Role";
 import { RoleService } from "src/app/services/role/role.service";
@@ -26,7 +27,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private jraduserService: JradUserService,
-    private rs: RoleService
+    private rs: RoleService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -59,6 +61,7 @@ export class RegisterComponent implements OnInit {
         this.userRole
       );
       this.jraduserService.addjradUser(this.newUser).subscribe();
+      this.router.navigateByUrl("/login");
     } else {
       console.log("Your form was not submitted, please try again");
     }
