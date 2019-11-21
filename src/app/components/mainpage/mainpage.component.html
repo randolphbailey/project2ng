@@ -17,3 +17,6 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <app-newpost *ngIf="userIsLoggedIn" (myEvent)="refresh()"></app-newpost>
+</div>
