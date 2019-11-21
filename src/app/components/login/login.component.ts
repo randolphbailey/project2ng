@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("/mod");
       }
       if (this.loggedrole === "User") {
-        this.router.navigateByUrl("/newpost");
+        this.router.navigateByUrl("/");
       }
     } else {
       this.show = true;
